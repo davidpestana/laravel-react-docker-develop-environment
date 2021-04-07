@@ -1,0 +1,57 @@
+version: '2'
+
+services:      
+
+    laravel:
+        container_name: laravel
+        build:
+            context: ../../builds/php-custom
+        restart: always
+        command: php artisan serve --host 0.0.0.0
+        depends_on:
+            - mysql
+        ports:
+            - 8000:8000
+        environment: 
+            docker: 'true'
+            MYSQL_HOST: "mysql"
+            MYSQL_DATABASE: "laravel"
+            MYSQL_USER: "root"
+            MYSQL_ROOT_PASSWORD: "password"
+        volumes:
+            - ../../source/laravel/:/var/www/html
+
+    react:
+        container_name: react
+        build:
+            context: ../../builds/node-custom
+        command: npm start
+        restart: always
+        ports:
+            - 3000:3000
+        volumes:
+            - ../../source/react/app:/app
+
+    mysql:
+        container_name: mysql
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'databasename'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ROOT_PASSWORD: 'password'
+        expose:
+        - '3306'
+        volumes:
+        - ../../data/mysql:/var/lib/mysql
+
+    phpmyadmin:
+            container_name: phpmyadmin
+            image: phpmyadmin/phpmyadmin
+            ports:
+                - 8080:80
+            environment:
+                PMA_HOST: 'mysql'
+                PMA_USER: 'root'
+                PMA_PASSWORD: 'password'
