@@ -24,7 +24,7 @@ Usar los siguientes scripts con fines de iniciar el proyecto, instalar dependenc
 ### Scripts
 
 #### cleanup
-Para limpiar el entorno, elimina contenedores y residuos. Es conveniente hacerlo cada vez antes de empezar o para evitar problemas.
+Para limpiar el entorno, eliminar contenedores y residuos. Es conveniente hacerlo cada vez antes de empezar o para evitar problemas.
 
 > ./bin/cleanup 
 
