@@ -7,10 +7,6 @@ Motivacion, promover el uso profesional de Docker entre los alumnos para los ent
 ## Config
 Toda la configuración del entorno se encuentra en /deploy/develop/docker-compose.yaml
 
-### Instrucciones
-Usar los siguientes scripts con fines de iniciar el proyecto, instalar dependencias, limpiar el entorno etc.
-
-
 
 ## El .gitignore
 se ignoran los directorios /data que es donde las base de datos persistirá los cambios y 
@@ -22,8 +18,10 @@ ya sea un repositorio existente o un proyecto de cero podras volcarlo en carpeta
 
 si usas otras carpetas debes modificar el archivo /deploy/develop/docker-compose.yaml
 
+## Como empezar
+Usar los siguientes scripts con fines de iniciar el proyecto, instalar dependencias, limpiar el entorno etc.
 
-## Scripts
+### Scripts
 
 #### cleanup
 Para limpiar el entorno, elimina contenedores y residuos. Es conveniente hacerlo cada vez antes de empezar o para evitar problemas.
