@@ -1,16 +1,16 @@
 # Entorno de desarrollo Laravel y React 
 
-### orientado a practicas de Alumnos FSD con stacks React/Laravel con bases de datos mysql
+#### Orientado a practicas de Alumnos FSD con stacks React/Laravel con bases de datos mysql
 
 Motivacion, promover el uso profesional de Docker entre los alumnos para los entornos de desarrollo, evitar la instalacion de stacks no nativos en diferentes sistemas operativos o el uso de installers como xampp, y por tanto lograr homogeneidad de versiones y librerias.
 
-### Instrucciones
+## Config
+Toda la configuración del entorno se encuentra en /deploy/develop/docker-compose.yaml
 
+### Instrucciones
 Usar los siguientes scripts con fines de iniciar el proyecto, instalar dependencias, limpiar el entorno etc.
 
-## Config
 
-Toda la configuración del entorno se encuentra en /deploy/develop/docker-compose.yaml
 
 ## El .gitignore
 se ignoran los directorios /data que es donde las base de datos persistirá los cambios y 
@@ -25,14 +25,17 @@ si usas otras carpetas debes modificar el archivo /deploy/develop/docker-compose
 
 ## Scripts
 
+#### cleanup
 Para limpiar el entorno, elimina contenedores y residuos. Es conveniente hacerlo cada vez antes de empezar o para evitar problemas.
 
 > ./bin/cleanup 
 
+#### start
 Para inicializar los servicios definidos en /deploy/develop/docker-compose.yaml que es donde se encuentra la configuracion de todo el entorno.
 
 > ./bin/start
 
+#### utils
 Para acceder a un contenedor de operaciones, usamos estos contenedores para inicializar un proyecto, react o laravel, instalar dependencias, hacer los dumps, migraciones o cualquier operacion propia del framework.
 
 
@@ -46,14 +49,15 @@ si definimos mas servicios o cambiamos sus nombres en /deploy/develop/docker-com
 > ./bin/utils [nombre del servicio]
 
 
+#### logs
 Reconectar con los logs de salida de los servicios
 
 > ./bin/logs
 
-# Puertos por defecto
+## Puertos por defecto
 
-React 3000
-Laravel 8000
-PHPMyadmin 8080
+* React 3000
+* Laravel 8000
+* PHPMyadmin 8080
 
 aunque puedes modificarlos en /deploy/develop/docker-compose.yaml 
