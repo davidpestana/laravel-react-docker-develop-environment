@@ -14,4 +14,4 @@ export GROUP_ID=${UID}
 
 ${DOCKER_COMPOSE} \
     -f ${PROJECT_PATH}/deploy/develop/docker-compose.yaml \
-    run $1 bash
+    build

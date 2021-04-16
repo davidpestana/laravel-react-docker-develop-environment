@@ -10,34 +10,36 @@ services:
         command: php artisan serve --host 0.0.0.0
         depends_on:
             - mysql
+            - phpmyadmin
         ports:
             - 8000:8000
         environment: 
             docker: 'true'
-            MYSQL_HOST: "mysql"
-            MYSQL_DATABASE: "laravel"
-            MYSQL_USER: "root"
-            MYSQL_ROOT_PASSWORD: "password"
+            DB_HOST: mysql
+            DB_PORT: 3306
+            DB_DATABASE: laravel
+            DB_USERNAME: root
+            DB_PASSWORD: password
         volumes:
             - ../../source/laravel/:/var/www/html
 
-    react:
-        container_name: react
-        build:
-            context: ../../builds/node-custom
-        command: npm start
-        restart: always
-        ports:
-            - 3000:3000
-        volumes:
-            - ../../source/react/app:/app
+    # react:
+    #     container_name: react
+    #     build:
+    #         context: ../../builds/node-custom
+    #     command: npm start
+    #     restart: always
+    #     ports:
+    #         - 3000:3000
+    #     volumes:
+    #         - ../../source/react/app:/app
 
     mysql:
         container_name: mysql
-        image: mysql
+        image: mysql:5.7
         restart: always
         environment:
-            MYSQL_DATABASE: 'databasename'
+            MYSQL_DATABASE: 'laravel'
             MYSQL_USER: 'user'
             MYSQL_PASSWORD: 'password'
             MYSQL_ROOT_PASSWORD: 'password'
